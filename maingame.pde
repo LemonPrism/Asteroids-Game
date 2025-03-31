@@ -1,0 +1,29 @@
+void maingame (){
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+}
+
+void maingameClicks(){
+  
+}
