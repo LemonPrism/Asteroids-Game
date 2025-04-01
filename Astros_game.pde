@@ -1,10 +1,12 @@
 
+
+ArrayList <Asteriod> asteriods; 
 color white = #ffffff;
 color black = #000000;
 color nblue = #04d9ff;
 color npurple = #8A00C4;
 
-
+int numberOfMovers = 10;
 
 
 
@@ -17,9 +19,11 @@ final int PAUSE =4;
 
 
 
-
-
-
+PVector gravity; 
+PVector loc; 
+PVector vel; 
+float d; 
+float vx, vy; 
 
 
 
@@ -27,11 +31,23 @@ final int PAUSE =4;
 void setup(){
  size ( 1000 , 600); 
  
+ asteriods = new ArrayList(); 
+   int i = 0 ;
+  while ( i< numberOfMovers) {
+    asteriods.add( new Asteriod());
+    i++;
+  }
  mode = MENU; 
+
+ 
+ 
+ 
+ textAlign ( CENTER, CENTER); 
+ rectMode ( CENTER); 
+
   
   
-  
-  
+  gravity = new PVector ( 0,1) ; 
   
   
   
