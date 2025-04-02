@@ -6,7 +6,7 @@ color black = #000000;
 color nblue = #04d9ff;
 color npurple = #8A00C4;
 
-int numberOfMovers = 10;
+int numberOfAsteriods = 10;
 
 
 
@@ -23,9 +23,16 @@ PVector gravity;
 PVector loc; 
 PVector vel; 
 float d; 
-float vx, vy; 
+ 
+
+boolean upkey, downkey, leftkey , rightkey; 
 
 
+
+
+
+//Game Objects 
+Spaceship player1; 
 
 
 void setup(){
@@ -33,7 +40,7 @@ void setup(){
  
  asteriods = new ArrayList(); 
    int i = 0 ;
-  while ( i< numberOfMovers) {
+  while ( i< numberOfAsteriods) {
     asteriods.add( new Asteriod());
     i++;
   }
@@ -41,13 +48,12 @@ void setup(){
 
  
  
- 
+ player1 = new Spaceship(); 
  textAlign ( CENTER, CENTER); 
  rectMode ( CENTER); 
 
   
-  
-  gravity = new PVector ( 0,1) ; 
+
   
   
   

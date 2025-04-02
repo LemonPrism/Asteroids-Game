@@ -19,6 +19,9 @@ void maingame () {
 
     i++;
   }
+  
+  player1.show();
+  player1.act(); 
 }
 
 void maingameClicks() {
