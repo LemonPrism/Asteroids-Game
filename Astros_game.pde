@@ -1,6 +1,6 @@
+import java.util.ArrayList;
 
 
-ArrayList <Asteriod> asteriods; 
 color white = #ffffff;
 color black = #000000;
 color nblue = #04d9ff;
@@ -10,60 +10,49 @@ int numberOfAsteriods = 10;
 
 
 
-int mode; 
-final int MENU = 0; 
-final int MAINGAME = 1; 
-final int GAMEOVER= 2; 
+int mode;
+final int MENU = 0;
+final int MAINGAME = 1;
+final int GAMEOVER= 2;
 final int YOUWON = 3;
-final int PAUSE =4; 
+final int PAUSE =4;
 
 
 
-PVector gravity; 
-PVector loc; 
-PVector vel; 
-float d; 
- 
-
-boolean upkey, downkey, leftkey , rightkey; 
+PVector gravity;
+PVector loc;
+PVector vel;
+float d;
 
 
+boolean upkey, downkey, leftkey, rightkey, spacekey;
+
+//List of Bullets
+ArrayList <GameObject> objects;
 
 
+//Game Objects
+Spaceship player1;
 
-//Game Objects 
-Spaceship player1; 
 
+void setup() {
+  size ( 1000, 600);
 
-void setup(){
- size ( 1000 , 600); 
- 
- asteriods = new ArrayList(); 
-   int i = 0 ;
-  while ( i< numberOfAsteriods) {
-    asteriods.add( new Asteriod());
-    i++;
-  }
- mode = MENU; 
+//  bullets = new ArrayList();
+  mode = MENU;
 
- 
- 
- player1 = new Spaceship(); 
- textAlign ( CENTER, CENTER); 
- rectMode ( CENTER); 
+objects = new ArrayList (); 
 
-  
-
-  
-  
-  
-  
-  
-  
+  player1 = new Spaceship();
+  textAlign ( CENTER, CENTER);
+  rectMode ( CENTER);
+  objects.add(player1); 
 }
 
 
 void draw () {
+  
+  println(objects.size ()); 
   if (mode==MENU) {
 
     menu();
