@@ -10,36 +10,24 @@ class Bullet extends GameObject {
 
     vel.setMag (10);
     timer = 60;
+    d = 5; 
   }
 
 
   void show() {
     fill( black);
     stroke( white);
-    circle ( loc.x, loc.y, 5);
+    circle ( loc.x, loc.y, d);
   }
 
 
   void act () {
 
     loc.add(vel);
-    checkForBoundary();
+    wraparound(); 
     timer--;
     if (timer ==0 ) lives = 0 ;
   }
 
-  void checkForBoundary() {
-    if (loc.x >1050) {
-      loc.x = -50;
-    }
-    if (loc.x <-50) {
-      loc.x = 1050;
-    }
-    if (loc.y >600) {
-      loc.y = -50;
-    }
-    if (loc.y <-50) {
-      loc.y = 600;
-    }
-  }
+ 
 }

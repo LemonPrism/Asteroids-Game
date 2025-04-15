@@ -5,7 +5,7 @@ class Spaceship extends GameObject {
   float maxspeed = 5;
 
   Spaceship () {
-    super(width/2, height/2, 0, 0 ); 
+    super(width/2, height/2, 0, 0 ,1); 
     dir  = new PVector ( 1, 0);
   }
 
@@ -31,7 +31,7 @@ class Spaceship extends GameObject {
     move ();
     shoot ();
     checkForCollisions();
-    checkForBoundary();
+   wraparound(); 
   }
 
 
@@ -70,18 +70,4 @@ class Spaceship extends GameObject {
   void checkForCollisions() {
   }
 
-  void checkForBoundary() {
-    if (loc.x >1050) {
-      loc.x = -50;
-    }
-    if (loc.x <-50) {
-      loc.x = 1050;
-    }
-    if (loc.y >600) {
-      loc.y = -50;
-    }
-    if (loc.y <-50) {
-      loc.y = 600;
-    }
-  }
 }

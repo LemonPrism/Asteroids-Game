@@ -12,7 +12,7 @@ int numberOfAsteriods = 10;
 
 int mode;
 final int MENU = 0;
-final int MAINGAME = 1;
+final int MAINGAME = 1; 
 final int GAMEOVER= 2;
 final int YOUWON = 3;
 final int PAUSE =4;
@@ -47,6 +47,13 @@ objects = new ArrayList ();
   textAlign ( CENTER, CENTER);
   rectMode ( CENTER);
   objects.add(player1); 
+
+  objects.add( new Asteroid());
+  objects.add( new Asteroid());
+ objects.add( new Asteroid());
+ objects.add( new Asteroid());
+ 
+ 
 }
 
 
