@@ -10,7 +10,7 @@ class Bullet extends GameObject {
 
     vel.setMag (10);
     timer = 60;
-    d = 5; 
+    d = 5;
   }
 
 
@@ -24,10 +24,8 @@ class Bullet extends GameObject {
   void act () {
 
     loc.add(vel);
-    wraparound(); 
+    wraparound();
     timer--;
     if (timer ==0 ) lives = 0 ;
   }
-
- 
 }

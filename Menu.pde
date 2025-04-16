@@ -9,9 +9,7 @@ void menu () {
 }
 
 void menuClicks() {
-  if( mouseX > width/2 - 100 && mouseX < width/2 +100 && mouseY > 400 && mouseY < 500){
-    mode = MAINGAME; 
-    
-    
+  if ( mouseX > width/2 - 100 && mouseX < width/2 +100 && mouseY > 400 && mouseY < 500) {
+    mode = MAINGAME;
   }
 }

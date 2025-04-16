@@ -2,32 +2,31 @@ class GameObject {
   PVector loc;
   PVector vel;
   int lives;
-  float d; 
-  
+  float d;
+
   GameObject(float lx, float ly, float vx, float vy, float life) {
     loc = new PVector ( lx, ly );
     vel = new PVector ( vx, vy);
-    lives = 3; 
+    lives = 3;
   }
 
   GameObject ( PVector l, PVector v) {
     loc = l;
-    vel = v; 
+    vel = v;
     lives = 1;
-  
   }
-   GameObject ( PVector l, PVector v , int lv) {
+  GameObject ( PVector l, PVector v, int lv) {
     loc = l;
-    vel = v; 
-    lives = lv; 
+    vel = v;
+    lives = lv;
   }
   void act() {
   }
   void show () {
   }
-  
-  void wraparound(){
-     if (loc.x >1050) {
+
+  void wraparound() {
+    if (loc.x >1050) {
       loc.x = -50;
     }
     if (loc.x <-50) {
@@ -39,7 +38,5 @@ class GameObject {
     if (loc.y <-50) {
       loc.y = 600;
     }
-    
-    
   }
 }

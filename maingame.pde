@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 void maingame () {
 
 
@@ -18,10 +11,9 @@ void maingame () {
     GameObject currentObject = objects.get(i);
     currentObject.act();
     currentObject.show();
-    if( currentObject.lives==0)
-    objects.remove(i); 
+    if ( currentObject.lives==0)
+      objects.remove(i);
     else i++;
-   
   }
 }
 

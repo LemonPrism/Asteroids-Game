@@ -1,6 +1,6 @@
-void mouseReleased (){
+void mouseReleased () {
 
-  
+
   if (mode==MENU) {
     menuClicks();
   } else if (mode==MAINGAME) {
@@ -10,5 +10,4 @@ void mouseReleased (){
   } else if ( mode== YOUWON) {
     youwonClicks();
   }
-
 }

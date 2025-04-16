@@ -8,26 +8,21 @@ class Asteroid extends GameObject {
     d = lives* 30;
   }
 
-  Asteroid(float x, float y, PVector mag, int dir, int life) {
+  Asteroid(float x, float y, PVector mag, float dir, int life) {
     super ( x, y, 1, 1, life);
-    vel = mag;
+
+    lives = life;
+    
     life = 3;
-
-    vel .setMag( random ( 2, 3) *dir);
+    loc.x = random( 1,100);
+    loc.y = random ( 1, 100);
+    
+    //vel .setMag( random ( 1, 2) *dir);
     vel.rotate ( random ( TWO_PI));
+dir = random ( 0 , 360);
 
-
-      d = lives*30;
+    d = lives*20;
   }
-
-  //Asteroids (PVector lx, PVector ly, int lives ){
-
-  //  super (Asteroid.loc.x, Asteroid.loc.y, 3);
-  //  lives = 3;
-
-
-  //}
-
 
   void show() {
     fill ( black);
@@ -51,10 +46,11 @@ class Asteroid extends GameObject {
       GameObject obj= objects.get(i);
       if (obj instanceof Bullet) {
         if ( dist ( loc.x, loc.y, obj.loc.x, obj.loc.y)< d/2  + obj.d/2) {
-          objects.add( new Asteroid(loc.x, loc.y,vel,30, 3));
-          //objects.add ( new Asteroid(loc,lives));
-          lives = 0 ;
+          objects.add( new Asteroid(loc.x, loc.y, vel, 30, lives));
+          objects.add( new Asteroid(loc.x, loc.y, vel, 30, lives));
+          lives = 0;
           obj.lives = 0;
+          lives = lives-1;
         }
       }
       i ++;

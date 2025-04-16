@@ -1,11 +1,11 @@
 class Spaceship extends GameObject {
 
-  
+
   PVector dir;
   float maxspeed = 5;
 
   Spaceship () {
-    super(width/2, height/2, 0, 0 ,1); 
+    super(width/2, height/2, 0, 0, 1);
     dir  = new PVector ( 1, 0);
   }
 
@@ -31,7 +31,7 @@ class Spaceship extends GameObject {
     move ();
     shoot ();
     checkForCollisions();
-   wraparound(); 
+    wraparound();
   }
 
 
@@ -47,11 +47,11 @@ class Spaceship extends GameObject {
 
     println( vel);
 
-//    float i = 3 ;
+    //    float i = 3 ;
 
-//    if (vel.mag() > maxspeed|| vel.mag() < -5) {
-//      vel.setMag(maxspeed);
-//    }
+    //    if (vel.mag() > maxspeed|| vel.mag() < -5) {
+    //      vel.setMag(maxspeed);
+    //    }
 
     if (upkey)  vel.add(dir);
     //} else {
@@ -69,5 +69,4 @@ class Spaceship extends GameObject {
   }
   void checkForCollisions() {
   }
-
 }

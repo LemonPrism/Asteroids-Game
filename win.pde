@@ -1,10 +1,6 @@
-void youwon(){
-  
-  
+void youwon() {
 }
 
 
-void youwonClicks(){
-  
-  
+void youwonClicks() {
 }
