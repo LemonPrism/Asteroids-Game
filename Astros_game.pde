@@ -57,7 +57,7 @@ void setup() {
 
 void draw () {
 
-  println(objects.size ());
+  
   if (mode==MENU) {
 
     menu();

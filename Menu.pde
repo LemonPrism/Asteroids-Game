@@ -1,4 +1,10 @@
 void menu () {
+  
+  
+  
+  
+  
+  
 
   background ( black);
   textSize(50);

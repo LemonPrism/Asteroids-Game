@@ -12,16 +12,16 @@ class Asteroid extends GameObject {
     super ( x, y, 1, 1, life);
 
     lives = life;
-    
+
     life = 3;
-    loc.x = random( 1,100);
-    loc.y = random ( 1, 100);
-    
+    loc.x = x+random( -50, 50);
+    loc.y = y+random ( -50, 50);
+
     //vel .setMag( random ( 1, 2) *dir);
     vel.rotate ( random ( TWO_PI));
-dir = random ( 0 , 360);
-
+    dir = random ( 0, 360);
     d = lives*20;
+    println( lives); 
   }
 
   void show() {
@@ -46,12 +46,24 @@ dir = random ( 0 , 360);
       GameObject obj= objects.get(i);
       if (obj instanceof Bullet) {
         if ( dist ( loc.x, loc.y, obj.loc.x, obj.loc.y)< d/2  + obj.d/2) {
+       lives = lives-1;
+          if ( lives > 0 ){
+            
           objects.add( new Asteroid(loc.x, loc.y, vel, 30, lives));
           objects.add( new Asteroid(loc.x, loc.y, vel, 30, lives));
-          lives = 0;
-          obj.lives = 0;
-          lives = lives-1;
+          
+          } else {
+            lives = 0;
+            
+            
+            
+            
+          }
+             
+           obj.lives = 0;
+         
         }
+        
       }
       i ++;
     }

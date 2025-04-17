@@ -10,13 +10,13 @@ class Bullet extends GameObject {
 
     vel.setMag (10);
     timer = 60;
-    d = 5;
+    d = 1;
   }
 
 
   void show() {
     fill( black);
-    stroke( white);
+    stroke( random (0, 255));
     circle ( loc.x, loc.y, d);
   }
 

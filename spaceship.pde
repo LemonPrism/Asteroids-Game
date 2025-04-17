@@ -45,19 +45,13 @@ class Spaceship extends GameObject {
     loc.add (vel);
 
 
-    println( vel);
-
-    //    float i = 3 ;
-
-    //    if (vel.mag() > maxspeed|| vel.mag() < -5) {
-    //      vel.setMag(maxspeed);
-    //    }
-
-    if (upkey)  vel.add(dir);
-    //} else {
-    //  vel.setMag(i);
-    //}
-
+    if (upkey) {
+      
+      vel.add(dir);
+      
+      
+    }
+  
     if (leftkey) dir.rotate (-radians(3));
     if (rightkey) dir.rotate (radians(3));
     vel.limit ( 5);
