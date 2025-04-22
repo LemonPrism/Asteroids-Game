@@ -18,6 +18,7 @@ class Bullet extends GameObject {
     fill( black);
     stroke( random (0, 255));
     circle ( loc.x, loc.y, d);
+   
   }
 
 

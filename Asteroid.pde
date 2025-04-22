@@ -1,4 +1,7 @@
 class Asteroid extends GameObject {
+  
+  PImage Asteroids; 
+  
   Asteroid () {
 
     super ( random ( 0, width), random ( 0, height), 1, 1, 3);
@@ -6,6 +9,7 @@ class Asteroid extends GameObject {
     vel.setMag (random (1, 3));
     vel.rotate (random (TWO_PI));
     d = lives* 30;
+      Asteroids = loadImage ("Asteroids.png");
   }
 
   Asteroid(float x, float y, PVector mag, float dir, int life) {
@@ -21,14 +25,16 @@ class Asteroid extends GameObject {
     vel.rotate ( random ( TWO_PI));
     dir = random ( 0, 360);
     d = lives*20;
-    println( lives); 
+    println( lives);
+     Asteroids = loadImage ("Asteroids.png");
   }
 
   void show() {
     fill ( black);
     stroke ( white);
-    circle ( loc.x, loc.y, d);
-    line ( loc.x, loc.y, loc.x +d/2, loc.y);
+    image( Asteroids, loc.x , loc.y, d, d );
+    //circle ( loc.x, loc.y, d);
+    //line ( loc.x, loc.y, loc.x +d/2,loc.y );
   }
 
 
@@ -46,24 +52,17 @@ class Asteroid extends GameObject {
       GameObject obj= objects.get(i);
       if (obj instanceof Bullet) {
         if ( dist ( loc.x, loc.y, obj.loc.x, obj.loc.y)< d/2  + obj.d/2) {
-       lives = lives-1;
-          if ( lives > 0 ){
-            
-          objects.add( new Asteroid(loc.x, loc.y, vel, 30, lives));
-          objects.add( new Asteroid(loc.x, loc.y, vel, 30, lives));
-          
+          lives = lives-1;
+          if ( lives > 0 ) {
+
+            objects.add( new Asteroid(loc.x, loc.y, vel, 30, lives));
+            objects.add( new Asteroid(loc.x, loc.y, vel, 30, lives));
           } else {
             lives = 0;
-            
-            
-            
-            
           }
-             
-           obj.lives = 0;
-         
+
+          obj.lives = 0;
         }
-        
       }
       i ++;
     }

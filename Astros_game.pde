@@ -30,13 +30,16 @@ boolean upkey, downkey, leftkey, rightkey, spacekey;
 //List of Bullets
 ArrayList <GameObject> objects;
 
-
+PFont font; 
 //Game Objects
 Spaceship player1;
 
 
 void setup() {
   size ( 1000, 600);
+  
+ font = createFont("Courier New", 20);
+  textFont(font);
 
   //  bullets = new ArrayList();
   mode = MENU;
