@@ -1,7 +1,7 @@
 class Asteroid extends GameObject {
-  
-  PImage Asteroids; 
-  
+
+  PImage Asteroids;
+
   Asteroid () {
 
     super ( random ( 0, width), random ( 0, height), 1, 1, 3);
@@ -9,7 +9,7 @@ class Asteroid extends GameObject {
     vel.setMag (random (1, 3));
     vel.rotate (random (TWO_PI));
     d = lives* 30;
-      Asteroids = loadImage ("Asteroids.png");
+    Asteroids = loadImage ("Asteroids.png");
   }
 
   Asteroid(float x, float y, PVector mag, float dir, int life) {
@@ -26,13 +26,13 @@ class Asteroid extends GameObject {
     dir = random ( 0, 360);
     d = lives*20;
     println( lives);
-     Asteroids = loadImage ("Asteroids.png");
+    Asteroids = loadImage ("Asteroids.png");
   }
 
   void show() {
     fill ( black);
     stroke ( white);
-    image( Asteroids, loc.x , loc.y, d, d );
+    image( Asteroids, loc.x, loc.y, d, d );
     //circle ( loc.x, loc.y, d);
     //line ( loc.x, loc.y, loc.x +d/2,loc.y );
   }
@@ -66,6 +66,9 @@ class Asteroid extends GameObject {
       }
       i ++;
     }
+    
+    
+    
   }
 
   void checkforbounds() {

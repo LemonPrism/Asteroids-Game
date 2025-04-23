@@ -20,16 +20,30 @@ class Spaceship extends GameObject {
     popMatrix();
   }
 
+
   void drawShip() {
-    fill( black);
-    stroke( white);
+    fill(black);
+    stroke(white);
     pushMatrix();
-    rotate ( radians( 90));
-    image ( starship, -10, -10, 70, 70);
+    rotate(radians(90));
+    imageMode(CENTER);
+
+
+    if (upkey) {
+      noStroke();
+      fill(255, 100, 0);
+      triangle(-10, 10, 0, 30 + random(10), 10, 10);
+    }
+
+    image(starship, 0, 0, 70, 70);
+    fill ( white);
+    textSize(10); 
+    text ("laser:", -10 , 50);
+    textSize( 30);
+    text (bulletCount, 50, 50);
     popMatrix();
-    //triangle ( -10, -10, -10, 10, 30, 0 );
-    //circle ( 15, 0, 5);
   }
+
 
   void act() {
 
@@ -62,7 +76,11 @@ class Spaceship extends GameObject {
 
 
   void shoot() {
-    if (spacekey)  objects.add( new Bullet());
+    if (spacekey && bulletCount > minBullets) {
+      objects.add(new Bullet());
+      bulletCount--;
+      println( bulletCount);
+    }
   }
   void checkForCollisions() {
   }

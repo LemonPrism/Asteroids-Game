@@ -24,21 +24,25 @@ PVector loc;
 PVector vel;
 float d;
 
+int bulletCount = 500;
+int minBullets = 0;
+
 
 boolean upkey, downkey, leftkey, rightkey, spacekey;
 
 //List of Bullets
 ArrayList <GameObject> objects;
 
-PFont font; 
+PFont font;
 //Game Objects
 Spaceship player1;
 
 
 void setup() {
   size ( 1000, 600);
-  
- font = createFont("Courier New", 20);
+  textAlign( CENTER, CENTER);
+
+  font = createFont("Courier New", 20);
   textFont(font);
 
   //  bullets = new ArrayList();
@@ -60,7 +64,7 @@ void setup() {
 
 void draw () {
 
-  
+
   if (mode==MENU) {
 
     menu();

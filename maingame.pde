@@ -15,6 +15,8 @@ void maingame () {
       objects.remove(i);
     else i++;
   }
+  
+
 }
 
 void maingameClicks() {
