@@ -24,8 +24,8 @@ PVector loc;
 PVector vel;
 float d;
 
-int bulletCount = 500;
-int minBullets = 0;
+int cannonBullets = 500;
+int laserBullets = 100;
 
 
 boolean upkey, downkey, leftkey, rightkey, spacekey;

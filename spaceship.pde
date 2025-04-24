@@ -1,4 +1,5 @@
 class Spaceship extends GameObject {
+  float currentWeapon = cannon;
 
   PImage starship;
   PVector dir;
@@ -35,12 +36,24 @@ class Spaceship extends GameObject {
       triangle(-10, 10, 0, 30 + random(10), 10, 10);
     }
 
-    image(starship, 0, 0, 70, 70);
+
     fill ( white);
-    textSize(10); 
-    text ("laser:", -10 , 50);
-    textSize( 30);
-    text (bulletCount, 50, 50);
+    textSize(12);
+    fill(white);
+    String weaponName;
+    int ammoCount = cannonBullets;
+    weaponName = "Cannon";
+    if (currentWeapon == cannon) {
+      ammoCount= cannonBullets;
+      weaponName=  "Cannon";
+    } else if (currentWeapon ==laser) {
+      ammoCount= laserBullets;
+      weaponName= "Laser";
+    }
+    text(weaponName+":"+ ammoCount, 0, 50);
+
+
+    image(starship, 0, 0, 70, 70);
     popMatrix();
   }
 
@@ -74,12 +87,15 @@ class Spaceship extends GameObject {
     vel.limit ( 3);
   }
 
-
   void shoot() {
-    if (spacekey && bulletCount > minBullets) {
-      objects.add(new Bullet());
-      bulletCount--;
-      println( bulletCount);
+    if ( spacekey) {
+      if (currentWeapon == cannon && cannonBullets > 0) {
+        objects.add(new Bullet(this, cannon));
+        cannonBullets--;
+      } else if (currentWeapon == laser && laserBullets > 0) {
+        objects.add(new Bullet(this, laser));
+        laserBullets--;
+      }
     }
   }
   void checkForCollisions() {

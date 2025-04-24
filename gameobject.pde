@@ -10,7 +10,7 @@ class GameObject {
     lives = 3;
   }
 
-  GameObject ( PVector l, PVector v) {
+  GameObject ( PVector l, PVector v, float _type) {
     loc = l;
     vel = v;
     lives = 1;
