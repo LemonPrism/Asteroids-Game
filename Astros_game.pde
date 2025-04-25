@@ -26,7 +26,7 @@ float d;
 
 int cannonBullets = 500;
 int laserBullets = 100;
-
+int rocketBullets = 1; 
 
 boolean upkey, downkey, leftkey, rightkey, spacekey;
 

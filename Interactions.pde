@@ -10,8 +10,10 @@ void keyPressed() {
     player1.currentWeapon = cannon;
   } else if (key == '2') {
     player1.currentWeapon = laser;
+  } else if ( key == '3' ) {
+    player1.currentWeapon = rocket;
   }
-reload(); 
+  reload();
 }
 
 
@@ -25,8 +27,8 @@ void keyReleased () {
 
 void reload() {
   if (key == 'r') {
-    if( cannonBullets< 500){
-    cannonBullets ++; 
+    if ( cannonBullets< 500) {
+      cannonBullets ++;
     }
   }
 }

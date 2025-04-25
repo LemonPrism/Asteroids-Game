@@ -49,6 +49,9 @@ class Spaceship extends GameObject {
     } else if (currentWeapon ==laser) {
       ammoCount= laserBullets;
       weaponName= "Laser";
+    } else if (currentWeapon ==rocket) {
+      ammoCount= rocketBullets;
+      weaponName= "Rocket";
     }
     text(weaponName+":"+ ammoCount, 0, 50);
 
@@ -95,6 +98,9 @@ class Spaceship extends GameObject {
       } else if (currentWeapon == laser && laserBullets > 0) {
         objects.add(new Bullet(this, laser));
         laserBullets--;
+      } else if (currentWeapon == rocket && rocketBullets > 0) {
+        objects.add(new Bullet(this, rocket));
+        rocketBullets--;
       }
     }
   }

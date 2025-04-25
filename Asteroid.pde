@@ -33,8 +33,7 @@ class Asteroid extends GameObject {
     fill ( black);
     stroke ( white);
     image( Asteroids, loc.x, loc.y, d, d );
-    //circle ( loc.x, loc.y, d);
-    //line ( loc.x, loc.y, loc.x +d/2,loc.y );
+ 
   }
 
 
@@ -45,30 +44,35 @@ class Asteroid extends GameObject {
     checkforCollisons();
   }
 
-
   void checkforCollisons() {
-    int i = 0 ;
-    while ( i < objects.size()) {
-      GameObject obj= objects.get(i);
+    int i = 0;
+    while (i < objects.size()) {
+      GameObject obj = objects.get(i);
+
       if (obj instanceof Bullet) {
-        if ( dist ( loc.x, loc.y, obj.loc.x, obj.loc.y)< d/2  + obj.d/2) {
-          lives = lives-1;
-          if ( lives > 0 ) {
+        Bullet bullet = (Bullet) obj;
 
-            objects.add( new Asteroid(loc.x, loc.y, vel, 30, lives));
-            objects.add( new Asteroid(loc.x, loc.y, vel, 30, lives));
-          } else {
+        if (dist(loc.x, loc.y, obj.loc.x, obj.loc.y) < d/2 + obj.d/2) {
+
+          if (bullet._type == rocket) {
+
             lives = 0;
-          }
+            bullet.lives = 0;
+          } else {
 
-          obj.lives = 0;
+            lives = lives - 1;
+            if (lives > 0) {
+              objects.add(new Asteroid(loc.x, loc.y, vel, 30, lives));
+              objects.add(new Asteroid(loc.x, loc.y, vel, 30, lives));
+            } else {
+              lives = 0;
+            }
+            bullet.lives = 0;
+          }
         }
       }
-      i ++;
+      i++;
     }
-    
-    
-    
   }
 
   void checkforbounds() {
