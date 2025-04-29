@@ -43,48 +43,55 @@ class Asteroid extends GameObject {
     checkforCollisons();
   }
 
-  void checkforCollisons() {
-    for (int i = 0; i < objects.size(); i++) {
-      GameObject obj = objects.get(i);
+ void checkforCollisons() {
+  for (int i = 0; i < objects.size(); i++) {
+    GameObject obj = objects.get(i);
 
-      if (obj instanceof Spaceship) {
-        Spaceship ship = (Spaceship) obj;
+    if (obj instanceof Spaceship) {
+      Spaceship ship = (Spaceship) obj;
 
-        if (dist(loc.x, loc.y, ship.loc.x, ship.loc.y) < d/2 + ship.d/2) {
-          if (ship.hitCooldown == 0) {
-            ship.lives--;
-            ship.hitCooldown = 120;
-            println ( ship.lives);
-            if ( ship.lives < 1){
-              mode = GAMEOVER; 
-              
-            }
+      if (dist(loc.x, loc.y, ship.loc.x, ship.loc.y) < d + ship.d) {
+        if (ship.hitCooldown == 0) {
+          ship.lives--;
+          ship.hitCooldown = 120;
+          println(ship.lives);
+
+         
+          if (lives > 1) { 
+            objects.add(new Asteroid(loc.x, loc.y, vel, 30, lives - 1));
+            objects.add(new Asteroid(loc.x, loc.y, vel, 30, lives - 1));
           }
-        }
-      }
+          lives = 0; 
 
-
-      if (obj instanceof Bullet) {
-        Bullet bullet = (Bullet) obj;
-
-        if (dist(loc.x, loc.y, bullet.loc.x, bullet.loc.y) < d/2 + bullet.d/2) {
-          if (bullet._type == rocket) {
-            lives = 0;
-            bullet.lives = 0;
-          } else {
-            lives--;
-            if (lives > 0) {
-              objects.add(new Asteroid(loc.x, loc.y, vel, 30, lives));
-              objects.add(new Asteroid(loc.x, loc.y, vel, 30, lives));
-            } else {
-              lives = 0;
-            }
-            bullet.lives = 0;
+          if (ship.lives < 1) {
+            mode = GAMEOVER; 
           }
         }
       }
     }
+
+    if (obj instanceof Bullet) {
+      Bullet bullet = (Bullet) obj;
+
+      if (dist(loc.x, loc.y, bullet.loc.x, bullet.loc.y) < d/2 + bullet.d/2) {
+        if (bullet._type == rocket) {
+          lives = 0;
+          bullet.lives = 0;
+        } else {
+          lives--;
+          if (lives > 0) {
+            objects.add(new Asteroid(loc.x, loc.y, vel, 30, lives));
+            objects.add(new Asteroid(loc.x, loc.y, vel, 30, lives));
+          } else {
+            lives = 0;
+          }
+          bullet.lives = 0;
+        }
+      }
+    }
   }
+}
+
 
   void checkforbounds() {
 
