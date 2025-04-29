@@ -4,11 +4,16 @@ class Spaceship extends GameObject {
   PImage starship;
   PVector dir;
   float maxspeed = 5;
+  int lives = 3;
+  int hitCooldown = 0;
+
 
   Spaceship () {
-    super(width/2, height/2, 0, 0, 1);
+    super(width/2, height/2, 0, 0, 5);
     dir  = new PVector ( 1, 0);
     starship = loadImage ("starship.png");
+
+    lives = 5;
   }
 
 
@@ -16,6 +21,13 @@ class Spaceship extends GameObject {
     pushMatrix();
     translate( loc.x, loc.y);
     rotate(dir.heading());
+    
+     if (hitCooldown > 0) {
+    noFill();
+    stroke(0, 255, 255, 150); 
+    strokeWeight(4);
+    ellipse(0, 0, d + 100, d + 100); 
+  }
     drawShip();
 
     popMatrix();
@@ -67,6 +79,9 @@ class Spaceship extends GameObject {
     shoot ();
     checkForCollisions();
     wraparound();
+    if (hitCooldown > 0) {
+      hitCooldown--;
+    }
   }
 
 
