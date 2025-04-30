@@ -13,7 +13,7 @@ class Spaceship extends GameObject {
     dir  = new PVector ( 1, 0);
     starship = loadImage ("starship.png");
 
-    lives = 5;
+    lives = 1;
   }
 
 

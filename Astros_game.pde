@@ -10,6 +10,11 @@ int numberOfAsteriods = 10;
 
 
 
+// Gifs
+boolean gifinish = false;
+
+Gif losegif;
+
 int mode;
 final int MENU = 0;
 final int MAINGAME = 1;
@@ -26,7 +31,7 @@ float d;
 
 int cannonBullets = 500;
 int laserBullets = 100;
-int rocketBullets = 1; 
+int rocketBullets = 1;
 
 boolean upkey, downkey, leftkey, rightkey, spacekey;
 
@@ -39,11 +44,12 @@ Spaceship player1;
 
 
 void setup() {
-  size ( 1000, 600);
+  size ( 1000, 600,P2D);
   textAlign( CENTER, CENTER);
 
   font = createFont("Courier New", 20);
   textFont(font);
+  losegif = new Gif ("lose/frame_", "_delay-0.1s.gif", 73, 7, 500, 300, width, height);
 
   //  bullets = new ArrayList();
   mode = MENU;
