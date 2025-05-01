@@ -32,7 +32,12 @@ class Bullet extends GameObject {
     } else if (_type == laser) {
       stroke(0, 255, 255);
       strokeWeight(3);
-      line(loc.x, loc.y, loc.x - vel.x * 2, loc.y - vel.y * 2);
+      int i = 0 ; 
+      if ( i < 10){
+      line(loc.x, loc.y, random ( loc.x - vel.x * 2),  random (loc.y - vel.y * 2));
+      i++;
+      
+      }
     } else if (_type == rocket) {
       pushMatrix();
       translate(loc.x, loc.y);

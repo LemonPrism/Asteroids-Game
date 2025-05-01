@@ -15,11 +15,15 @@ void maingame () {
       objects.remove(i);
     else i++;
   }
-  
+  strokeWeight ( 5); 
+  stroke ( white); 
+  circle ( 900, 100, 20); 
 
   
 
 }
 
 void maingameClicks() {
+  
+
 }
