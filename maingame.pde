@@ -24,6 +24,5 @@ void maingame () {
 }
 
 void maingameClicks() {
-  
 
 }

@@ -30,7 +30,7 @@ class Bullet extends GameObject {
       stroke ( random ( 0, 255));
       circle(loc.x, loc.y, d);
     } else if (_type == laser) {
-      stroke(0, 255, 255);
+      stroke(npurple);
       strokeWeight(3);
       int i = 0 ; 
       if ( i < 10){

@@ -5,6 +5,7 @@ color white = #ffffff;
 color black = #000000;
 color nblue = #04d9ff;
 color npurple = #8A00C4;
+color yellow = #FFE81F;
 
 int numberOfAsteriods = 10;
 
@@ -39,15 +40,17 @@ boolean upkey, downkey, leftkey, rightkey, spacekey;
 ArrayList <GameObject> objects;
 
 PFont font;
+PFont font1; 
 //Game Objects
 Spaceship player1;
 
 
 void setup() {
-  size ( 1000, 600,P2D);
-  textAlign( CENTER, CENTER);
+  size ( 1000, 600);
+  textAlign(CENTER, CENTER);
 
   font = createFont("Courier New", 20);
+  font1 = createFont ("BritannicBold-48" , 20); 
   textFont(font);
   losegif = new Gif ("lose/frame_", "_delay-0.1s.gif", 73, 7, 500, 300, width, height);
 
