@@ -22,6 +22,8 @@ final int MAINGAME = 1;
 final int GAMEOVER= 2;
 final int YOUWON = 3;
 final int PAUSE =4;
+final int OPTIONS = 5;
+
 
 
 
@@ -40,7 +42,7 @@ boolean upkey, downkey, leftkey, rightkey, spacekey;
 ArrayList <GameObject> objects;
 
 PFont font;
- 
+
 //Game Objects
 Spaceship player1;
 
@@ -92,5 +94,7 @@ void draw () {
     youwon();
   } else if (mode==PAUSE) {
     pause();
+  } else if ( mode == OPTIONS) {
+    options();
   }
 }

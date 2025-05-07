@@ -69,17 +69,17 @@ class Asteroid extends GameObject {
               mode = GAMEOVER;
             }
             objects.add(new Particle(loc.x, loc.y, 1, 0));
-          objects.add(new Particle(loc.x, loc.y, -1, 0));
-          objects.add(new Particle(loc.x, loc.y, 0, 1));
-          objects.add(new Particle(loc.x, loc.y, 0, -1));
-          objects.add(new Particle(loc.x, loc.y, 1, 1));
-          objects.add(new Particle(loc.x, loc.y, -1, -1));
-          objects.add(new Particle(loc.x, loc.y, 1.5, 0));
-          objects.add(new Particle(loc.x, loc.y, -1.5, 0));
-          objects.add(new Particle(loc.x, loc.y, 0, 1.5));
-          objects.add(new Particle(loc.x, loc.y, 0, -1.5));
-          objects.add(new Particle(loc.x, loc.y, 1, 1.5));
-          objects.add(new Particle(loc.x, loc.y, -1, -1.5));
+            objects.add(new Particle(loc.x, loc.y, -1, 0));
+            objects.add(new Particle(loc.x, loc.y, 0, 1));
+            objects.add(new Particle(loc.x, loc.y, 0, -1));
+            objects.add(new Particle(loc.x, loc.y, 1, 1));
+            objects.add(new Particle(loc.x, loc.y, -1, -1));
+            objects.add(new Particle(loc.x, loc.y, 1.5, 0));
+            objects.add(new Particle(loc.x, loc.y, -1.5, 0));
+            objects.add(new Particle(loc.x, loc.y, 0, 1.5));
+            objects.add(new Particle(loc.x, loc.y, 0, -1.5));
+            objects.add(new Particle(loc.x, loc.y, 1, 1.5));
+            objects.add(new Particle(loc.x, loc.y, -1, -1.5));
           }
         }
       }
