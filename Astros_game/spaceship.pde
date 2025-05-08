@@ -1,7 +1,7 @@
 class Spaceship extends GameObject {
   float currentWeapon = cannon;
 
-  PImage starship;
+
   PVector dir;
   float maxspeed = 5;
   int lives = 3;
@@ -11,7 +11,7 @@ class Spaceship extends GameObject {
   Spaceship () {
     super(width/2, height/2, 0, 0, 5);
     dir  = new PVector ( 1, 0);
-    starship = loadImage ("starship.png");
+   
 
     lives = 5;
   }
@@ -67,8 +67,16 @@ class Spaceship extends GameObject {
     }
     text(weaponName+":"+ ammoCount, 0, 50);
 
-
+    
+    
+    if ( ship==1){
     image(starship, 0, 0, 70, 70);
+    
+    }else if ( ship==2){
+      filter(INVERT);
+      image(starship, 0, 0, 70, 70);
+         filter(INVERT);
+    }
     popMatrix();
   }
 

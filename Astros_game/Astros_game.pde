@@ -25,6 +25,12 @@ final int PAUSE =4;
 final int OPTIONS = 5;
 
 
+//options menu
+
+float ship;
+PImage starship;
+
+
 
 
 PVector gravity;
@@ -70,6 +76,15 @@ void setup() {
   objects.add( new Asteroid());
   objects.add( new Asteroid());
   objects.add( new Asteroid());
+  
+  
+  
+  
+  
+  // options 
+  
+   starship = loadImage ("starship.png");
+
 }
 
 

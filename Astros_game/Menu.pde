@@ -38,7 +38,7 @@ fill (yellow);
 
 void menuClicks() {
   
-    mode = MAINGAME;
+    mode =OPTIONS;
     
     
   
