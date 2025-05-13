@@ -2,71 +2,43 @@
 
 
 
-
 void options() {
-  
-  //float r = red(starship.pixels[loc]); 
-  //float g = green(img.pixels [loc]); 
-  //float b = blue ( img.pixels[Loc]);
   background(black);
-  fill ( yellow);
-  textSize (50);
-  text ( "Choose your fighter", 500, 200);
-
-  fill ( black);
-  
- 
-  tactiles( 150, 350, 100, 100);
-  square ( 200, 400, 100);
+  fill(yellow);
+  textSize(50);
+  text("Choose your fighter", 500, 200);
+  imageMode(CORNER);
+  fill(black);
   starship.resize ( 100, 100);
-  image (starship, 150, 360);
-  tactiles( 350, 350, 100, 100);
 
+  tactiles(250, 350, 100, 100);
+  square(300, 400, 100);
+  pushMatrix();
+  image(starship, 250, 360);
+  popMatrix();
 
-  square ( 400, 400, 100);
-  filter ( INVERT);
-  image ( starship, 350, 360);
-
-  filter (INVERT);
-  
-  
- 
-  tactiles( 550, 350, 100, 100);
-  square ( 600, 400, 100);
-  image ( starship, 550, 360);
-
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  tactiles( 750, 350, 100, 100);
-  square ( 800, 400, 100);
+  tactiles(650, 350, 100, 100);
+  square(700, 400, 100);
+  pushMatrix();
+  filter(INVERT);
+  image(starship, 650, 360);
+  filter(INVERT);
+  popMatrix();
 }
 
 
 
+
 void optionsClicks() {
-  
-  
-  if ( mouseX>150 && mouseX < 250 && mouseY > 350 && mouseY < 450){
-    ship = 1; 
-    mode = MAINGAME; 
-    
+
+
+  if ( mouseX>250 && mouseX < 350 && mouseY > 350 && mouseY < 450) {
+    ship = 1;
+    mode = MAINGAME;
   }
-   if ( mouseX>350 && mouseX < 450 && mouseY > 350 && mouseY < 450){
-    ship = 2; 
-    mode = MAINGAME; 
-    
+  if ( mouseX>650 && mouseX < 750 && mouseY > 350 && mouseY < 450) {
+    ship = 2;
+    mode = MAINGAME;
   }
 }
 

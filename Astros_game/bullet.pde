@@ -49,7 +49,6 @@ class Bullet extends GameObject {
       rect(0, 0, 20, 10);
       fill(255, 0, 0);
       triangle(-10, -5, -10, 5, -20, 0);
-
       popMatrix();
     }
   }

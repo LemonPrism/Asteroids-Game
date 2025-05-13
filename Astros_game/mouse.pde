@@ -9,11 +9,9 @@ void mouseReleased () {
     gameoverClicks();
   } else if ( mode== YOUWON) {
     youwonClicks();
-  } else if ( mode==PAUSE){
-   pauseClicks(); 
-    
-  }else if ( mode ==OPTIONS){
+  } else if ( mode==PAUSE) {
+    pauseClicks();
+  } else if ( mode ==OPTIONS) {
     optionsClicks();
-    
   }
 }

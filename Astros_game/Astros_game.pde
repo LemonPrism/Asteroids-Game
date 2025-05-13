@@ -6,6 +6,7 @@ color black = #000000;
 color nblue = #04d9ff;
 color npurple = #8A00C4;
 color yellow = #FFE81F;
+color red = #FF0000;
 
 int numberOfAsteriods = 10;
 
@@ -66,7 +67,7 @@ void setup() {
   mode = MENU;
 
   objects = new ArrayList ();
-
+  
   player1 = new Spaceship();
   textAlign ( CENTER, CENTER);
   rectMode ( CENTER);
@@ -76,15 +77,14 @@ void setup() {
   objects.add( new Asteroid());
   objects.add( new Asteroid());
   objects.add( new Asteroid());
-  
-  
-  
-  
-  
-  // options 
-  
-   starship = loadImage ("starship.png");
 
+
+
+
+
+  // options
+
+  starship = loadImage ("starship.png");
 }
 
 

@@ -8,7 +8,7 @@ void pause() {
   //textSize ( 20);
   //text( "Click anywhere to return", width/2, height/2+50);
 
-  if ( mouseX> 300 && mouseX < 400 && mouseY > 370&& mouseY < 420) {
+  if ( mouseX> 300 && mouseX < 400 && mouseY > 370 && mouseY < 420) {
     fill(yellow);
     stroke ( white);
   } else {
@@ -19,12 +19,6 @@ void pause() {
 
   textSize( 20);
   text ("Reset", 350, 400);
-
-
-
-
-
-
 
 
   if ( mouseX> 600 && mouseX < 700 && mouseY > 370&& mouseY < 420) {

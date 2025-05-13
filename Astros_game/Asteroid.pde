@@ -56,7 +56,6 @@ class Asteroid extends GameObject {
             ship.hitCooldown = 120;
             println(ship.lives);
 
-
             if (lives > 1) {
               objects.add(new Asteroid(loc.x, loc.y, vel, 30, lives - 1));
               objects.add(new Asteroid(loc.x, loc.y, vel, 30, lives - 1));
@@ -83,7 +82,6 @@ class Asteroid extends GameObject {
           }
         }
       }
-
       if (obj instanceof Bullet) {
         Bullet bullet = (Bullet) obj;
 

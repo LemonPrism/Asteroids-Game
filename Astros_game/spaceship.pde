@@ -11,7 +11,7 @@ class Spaceship extends GameObject {
   Spaceship () {
     super(width/2, height/2, 0, 0, 5);
     dir  = new PVector ( 1, 0);
-   
+
 
     lives = 5;
   }
@@ -21,13 +21,13 @@ class Spaceship extends GameObject {
     pushMatrix();
     translate( loc.x, loc.y);
     rotate(dir.heading());
-    
-     if (hitCooldown > 0) {
-    noFill();
-    stroke(0, 255, 255, 150); 
-    strokeWeight(4);
-    ellipse(0, 0, d + 100, d + 100); 
-  }
+
+    if (hitCooldown > 0) {
+      noFill();
+      stroke(0, 255, 255, 150);
+      strokeWeight(4);
+      ellipse(0, 0, d + 100, d + 100);
+    }
     drawShip();
 
     popMatrix();
@@ -67,15 +67,15 @@ class Spaceship extends GameObject {
     }
     text(weaponName+":"+ ammoCount, 0, 50);
 
-    
-    
-    if ( ship==1){
-    image(starship, 0, 0, 70, 70);
-    
-    }else if ( ship==2){
+
+
+
+    if ( ship==1) {
+      image(starship, 0, 0, 70, 70);
+    } else if ( ship==2) {
       filter(INVERT);
       image(starship, 0, 0, 70, 70);
-         filter(INVERT);
+      filter(INVERT);
     }
     popMatrix();
   }
@@ -85,6 +85,7 @@ class Spaceship extends GameObject {
 
     move ();
     shoot ();
+    teleport(); 
     checkForCollisions();
     wraparound();
     if (hitCooldown > 0) {
@@ -96,9 +97,6 @@ class Spaceship extends GameObject {
 
 
   void move() {
-
-
-
 
     loc.add (vel);
 
@@ -128,5 +126,45 @@ class Spaceship extends GameObject {
     }
   }
   void checkForCollisions() {
+  }
+
+  void teleport () {
+    if (key == 't' ) {
+
+      PVector safeloc = new PVector ();
+      boolean safe = false;
+
+      while ( safe ==false ) {
+
+        float safeX = random ( 0, width ) ;
+        float safeY = random ( 0, height);
+        safeloc.set(safeX, safeY);
+        safe = true;
+
+
+
+
+
+        int i = 0 ;
+        while ( i< objects.size()) {
+
+          GameObject obj = objects.get(i);
+          if ( obj instanceof Asteroid) {
+            float d = dist (safeloc.x , safeloc.y , obj.loc.x , obj.loc.y); 
+            if ( d< 200){
+             safe = false; 
+             break;
+              
+            }
+            
+          }
+          i++;
+        }
+      }
+      
+    loc.set(safeloc); 
+    }
+    
+    
   }
 }

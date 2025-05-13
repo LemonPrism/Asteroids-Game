@@ -5,9 +5,9 @@ void keyPressed() {
   if ( keyCode == LEFT) leftkey = true;
   if ( keyCode == RIGHT) rightkey = true;
   if ( key == ' ') {
-    
+
     spacekey = true;
-    frameRate( 30); 
+    frameRate( 30);
   }
 
   if (key == '1') {
@@ -18,6 +18,8 @@ void keyPressed() {
     player1.currentWeapon = rocket;
   }
   reload();
+  
+
 }
 
 
@@ -28,12 +30,12 @@ void keyReleased () {
   if ( keyCode == RIGHT) rightkey = false;
   if ( key == ' ') {
     spacekey = false;
-    frameRate( 60); 
+    frameRate( 60);
   }
 }
 
 void reload() {
-  if (key == 'r') {
+  if (key == 'r' || key =='R') {
     if ( cannonBullets< 500) {
       cannonBullets ++;
     }
