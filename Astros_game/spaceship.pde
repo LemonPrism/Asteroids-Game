@@ -6,7 +6,9 @@ class Spaceship extends GameObject {
   float maxspeed = 5;
   int lives = 3;
   int hitCooldown = 0;
-
+  final float  maxTeleportCooldown = 300;
+  float teleportCooldown = 0;
+  boolean canTeleport = true;
 
   Spaceship () {
     super(width/2, height/2, 0, 0, 5);
@@ -14,6 +16,7 @@ class Spaceship extends GameObject {
 
 
     lives = 5;
+    ship =1; 
   }
 
 
@@ -85,7 +88,14 @@ class Spaceship extends GameObject {
 
     move ();
     shoot ();
-    teleport(); 
+    teleport();
+    if (!canTeleport) {
+      teleportCooldown--;
+      if (teleportCooldown <= 0) {
+        canTeleport = true;
+      }
+    }
+
     checkForCollisions();
     wraparound();
     if (hitCooldown > 0) {
@@ -129,7 +139,7 @@ class Spaceship extends GameObject {
   }
 
   void teleport () {
-    if (key == 't' ) {
+    if (tkey && canTeleport ) {
 
       PVector safeloc = new PVector ();
       boolean safe = false;
@@ -150,21 +160,18 @@ class Spaceship extends GameObject {
 
           GameObject obj = objects.get(i);
           if ( obj instanceof Asteroid) {
-            float d = dist (safeloc.x , safeloc.y , obj.loc.x , obj.loc.y); 
-            if ( d< 200){
-             safe = false; 
-             break;
-              
+            float d = dist (safeloc.x, safeloc.y, obj.loc.x, obj.loc.y);
+            if ( d< 200) {
+              safe = false;
+              break;
             }
-            
           }
           i++;
         }
       }
-      
-    loc.set(safeloc); 
+      canTeleport = false;
+      loc.set(safeloc);
+      teleportCooldown = maxTeleportCooldown;
     }
-    
-    
   }
 }

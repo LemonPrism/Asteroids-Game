@@ -9,6 +9,7 @@ void keyPressed() {
     spacekey = true;
     frameRate( 30);
   }
+  if ( key =='t') tkey=true;
 
   if (key == '1') {
     player1.currentWeapon = cannon;
@@ -18,8 +19,6 @@ void keyPressed() {
     player1.currentWeapon = rocket;
   }
   reload();
-  
-
 }
 
 
@@ -28,6 +27,8 @@ void keyReleased () {
   if ( keyCode == DOWN) downkey =false;
   if ( keyCode == LEFT) leftkey = false;
   if ( keyCode == RIGHT) rightkey = false;
+  if ( key== 't') tkey=false;
+
   if ( key == ' ') {
     spacekey = false;
     frameRate( 60);

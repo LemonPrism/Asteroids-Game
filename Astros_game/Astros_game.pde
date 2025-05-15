@@ -30,6 +30,7 @@ final int OPTIONS = 5;
 
 float ship;
 PImage starship;
+PImage Tief;
 
 
 
@@ -43,7 +44,7 @@ int cannonBullets = 500;
 int laserBullets = 100;
 int rocketBullets = 1;
 
-boolean upkey, downkey, leftkey, rightkey, spacekey;
+boolean upkey, downkey, leftkey, rightkey, spacekey, tkey;
 
 //List of Bullets
 ArrayList <GameObject> objects;
@@ -52,6 +53,7 @@ PFont font;
 
 //Game Objects
 Spaceship player1;
+UFO Ai;
 
 
 void setup() {
@@ -64,15 +66,16 @@ void setup() {
   losegif = new Gif ("lose/frame_", "_delay-0.1s.gif", 73, 7, 500, 300, width, height);
 
 
-  mode = MENU;
+  mode = MAINGAME;
 
   objects = new ArrayList ();
-  
+
   player1 = new Spaceship();
   textAlign ( CENTER, CENTER);
   rectMode ( CENTER);
   objects.add(player1);
-
+  Ai= new UFO();
+  objects.add( new UFO());
   objects.add( new Asteroid());
   objects.add( new Asteroid());
   objects.add( new Asteroid());
@@ -84,7 +87,10 @@ void setup() {
 
   // options
 
+
+  //ship images
   starship = loadImage ("starship.png");
+  Tief= loadImage ("Tie.png");
 }
 
 
