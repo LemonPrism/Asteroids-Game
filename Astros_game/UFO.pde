@@ -2,7 +2,7 @@ class UFO extends GameObject {
 
   PVector dir;
   float maxspeed = 10 ;
-  int lives = 1;
+  int lives;
   float x, y;
 
   UFO() {
@@ -14,7 +14,7 @@ class UFO extends GameObject {
     dir = new PVector (x, y);
 
 
-    lives = 1;
+    lives = 3;
   }
 
 
@@ -83,14 +83,20 @@ class UFO extends GameObject {
 
 
   void checkforCollisions() {
-    int i =0 ;
-    while ( i< objects.size()) {
-      GameObject obj = obj.get(i);
+
+    int i = 0;
+    while (i < objects.size()) {
+      GameObject obj = objects.get(i);
+
       if (obj instanceof Bullet) {
+        Bullet bullet = (Bullet) obj;
+
         if (dist(loc.x, loc.y, bullet.loc.x, bullet.loc.y) < d/2 + bullet.d/2) {
-          lives = lives --;
+          lives--;
+          println("UFO hit! Lives remaining: " + lives);
         }
       }
+
       i++;
     }
   }
