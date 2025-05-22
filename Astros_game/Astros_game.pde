@@ -66,7 +66,7 @@ void setup() {
   losegif = new Gif ("lose/frame_", "_delay-0.1s.gif", 73, 7, 500, 300, width, height);
 
 
-  mode = MAINGAME;
+  mode = GAMEOVER;
 
   objects = new ArrayList ();
 

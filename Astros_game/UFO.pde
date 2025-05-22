@@ -59,8 +59,8 @@ class UFO extends GameObject {
 
     stroke ( white);
     strokeWeight( 10);
-    line ( loc.x+50, loc.y, loc.x+70, loc.y);
-    line ( loc.x-50, loc.y, loc.x-70, loc.y);
+    line ( loc.x, loc.y+50, loc.x, loc.y);
+    line ( loc.x, loc.y, loc.x-70, loc.y);
   }
 
 
@@ -74,7 +74,7 @@ class UFO extends GameObject {
 
 
     imageMode(CENTER);
-    Tief.resize( 20, 20 );
+    Tief.resize( 200, 200 );
     image (Tief, 0, 0, 70, 70);
 
     popMatrix();
@@ -93,7 +93,8 @@ class UFO extends GameObject {
 
         if (dist(loc.x, loc.y, bullet.loc.x, bullet.loc.y) < d/2 + bullet.d/2) {
           lives--;
-          println("UFO hit! Lives remaining: " + lives);
+          
+          println("UFO" + lives);
         }
       }
 
