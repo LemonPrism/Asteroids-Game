@@ -13,9 +13,7 @@ int numberOfAsteriods = 10;
 
 
 // Gifs
-boolean gifinish = false;
 
-Gif losegif;
 
 int mode;
 final int MENU = 0;
@@ -53,7 +51,7 @@ PFont font;
 
 //Game Objects
 Spaceship player1;
-UFO Ai;
+UFO ufo;
 
 
 void setup() {
@@ -63,7 +61,7 @@ void setup() {
   font = createFont("Courier New", 20);
 
   textFont(font);
-  losegif = new Gif ("lose/frame_", "_delay-0.1s.gif", 73, 7, 500, 300, width, height);
+ 
 
 
   mode = GAMEOVER;
@@ -74,7 +72,7 @@ void setup() {
   textAlign ( CENTER, CENTER);
   rectMode ( CENTER);
   objects.add(player1);
-  Ai= new UFO();
+  ufo= new UFO();
   objects.add( new UFO());
   objects.add( new Asteroid());
   objects.add( new Asteroid());

@@ -1,8 +1,7 @@
-
 final float cannon = 1;
 final float laser = 2;
 final float rocket = 3;
-
+final float ufobullet = 4;
 class Bullet extends GameObject {
   float _type;
   int timer;
@@ -24,32 +23,38 @@ class Bullet extends GameObject {
     }
   }
 
+  Bullet(UFO ufo) {
+    super(ufo.loc.copy(), ufo.dir.copy(), 1);
+    vel.setMag(.5);
+    timer = 60;
+    d = 5;
+    _type = ufobullet;
+  }
+
   void show() {
     if (_type == cannon) {
-      fill(black);
-      stroke ( random ( 0, 255));
+      fill(0);
+      stroke(random(0, 255));
       circle(loc.x, loc.y, d);
     } else if (_type == laser) {
-      stroke(npurple);
+      stroke(#8A00C4);
       strokeWeight(3);
-      int i = 0 ; 
-      if ( i < 10){
-      line(loc.x, loc.y, random ( loc.x - vel.x * 2),  random (loc.y - vel.y * 2));
-      i++;
-      
-      }
+      line(loc.x, loc.y, loc.x - vel.x * 2, loc.y - vel.y * 2);
     } else if (_type == rocket) {
       pushMatrix();
       translate(loc.x, loc.y);
       rotate(vel.heading());
       fill(255);
       stroke(255);
-      rectMode(CENTER);
-      ellipse ( 10, 0, 20, 10);
+      ellipse(10, 0, 20, 10);
       rect(0, 0, 20, 10);
       fill(255, 0, 0);
       triangle(-10, -5, -10, 5, -20, 0);
       popMatrix();
+    } else if (_type == ufobullet) {
+      fill(255, 0, 255);
+      stroke(0);
+      ellipse(loc.x, loc.y, d, d);
     }
   }
 
