@@ -16,7 +16,7 @@ class Spaceship extends GameObject {
 
 
     lives = 5;
-    ship =1; 
+    ship =1;
   }
 
 
@@ -44,44 +44,43 @@ class Spaceship extends GameObject {
     rotate(radians(90));
     imageMode(CENTER);
 
-
     if (upkey) {
       noStroke();
       fill(255, 100, 0);
       triangle(-10, 10, 0, 30 + random(10), 10, 10);
     }
 
-
-    fill ( white);
-    textSize(12);
     fill(white);
-    String weaponName;
+    textSize(12);
+    textAlign(CENTER);
+
+
+    String weaponName = "Cannon";
     int ammoCount = cannonBullets;
-    weaponName = "Cannon";
-    if (currentWeapon == cannon) {
-      ammoCount= cannonBullets;
-      weaponName=  "Cannon";
-    } else if (currentWeapon ==laser) {
-      ammoCount= laserBullets;
-      weaponName= "Laser";
-    } else if (currentWeapon ==rocket) {
-      ammoCount= rocketBullets;
-      weaponName= "Rocket";
+    if (currentWeapon == laser) {
+      weaponName = "Laser";
+      ammoCount = laserBullets;
+    } else if (currentWeapon == rocket) {
+      weaponName = "Rocket";
+      ammoCount = rocketBullets;
     }
-    text(weaponName+":"+ ammoCount, 0, 50);
+    text(weaponName + ": " + ammoCount, 0, 50);
 
 
+    text("Lives: " + lives, 0, 65);
 
 
-    if ( ship==1) {
+    if (ship == 1) {
       image(starship, 0, 0, 70, 70);
-    } else if ( ship==2) {
+    } else if (ship == 2) {
       filter(INVERT);
       image(starship, 0, 0, 70, 70);
       filter(INVERT);
     }
+
     popMatrix();
   }
+
 
 
   void act() {
@@ -136,7 +135,30 @@ class Spaceship extends GameObject {
     }
   }
   void checkForCollisions() {
+    for (int i = 0; i < objects.size(); i++) {
+      GameObject obj = objects.get(i);
+
+      if (obj instanceof Bullet) {
+        Bullet bullet = (Bullet) obj;
+
+
+        if (bullet.isEnemy && dist(loc.x, loc.y, bullet.loc.x, bullet.loc.y) < d / 2 + bullet.d / 2) {
+          if (hitCooldown == 0) {
+            lives--;
+            hitCooldown = 60;
+            bullet.lives = 0;
+
+            println("Spaceship hit! Lives left: " + lives);
+            if (lives <= 0) {
+              println("GAME OVER");
+              mode = GAMEOVER;
+            }
+          }
+        }
+      }
+    }
   }
+
 
   void teleport () {
     if (tkey && canTeleport ) {

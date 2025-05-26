@@ -1,69 +1,59 @@
 final float cannon = 1;
 final float laser = 2;
 final float rocket = 3;
-final float ufobullet = 4;
+final float ufo_bullet = 4;
+
 class Bullet extends GameObject {
   float _type;
   int timer;
+  boolean isEnemy;
 
-  Bullet(Spaceship shooter, float _type) {
-    super(shooter.loc.copy(), shooter.dir.copy(), 1);
+  Bullet(Spaceship ship, float _type) {
+    super(ship.loc.copy(), ship.dir.copy(), 1);
     this._type = _type;
-    vel.setMag(10);
+    isEnemy = false;
 
+    vel.setMag(10);
     if (_type == cannon) {
-      timer = 30;
-      d = 1;
+      timer = 30; d = 8;
     } else if (_type == laser) {
-      timer = 20;
-      d = 6;
+      timer = 20; d = 6;
     } else if (_type == rocket) {
-      timer = 60;
-      d = 20;
+      timer = 60; d = 20;
     }
   }
 
   Bullet(UFO ufo) {
     super(ufo.loc.copy(), ufo.dir.copy(), 1);
-    vel.setMag(.5);
-    timer = 60;
-    d = 5;
-    _type = ufobullet;
-  }
-
-  void show() {
-    if (_type == cannon) {
-      fill(0);
-      stroke(random(0, 255));
-      circle(loc.x, loc.y, d);
-    } else if (_type == laser) {
-      stroke(#8A00C4);
-      strokeWeight(3);
-      line(loc.x, loc.y, loc.x - vel.x * 2, loc.y - vel.y * 2);
-    } else if (_type == rocket) {
-      pushMatrix();
-      translate(loc.x, loc.y);
-      rotate(vel.heading());
-      fill(255);
-      stroke(255);
-      ellipse(10, 0, 20, 10);
-      rect(0, 0, 20, 10);
-      fill(255, 0, 0);
-      triangle(-10, -5, -10, 5, -20, 0);
-      popMatrix();
-    } else if (_type == ufobullet) {
-      fill(255, 0, 255);
-      stroke(0);
-      ellipse(loc.x, loc.y, d, d);
-    }
+    this._type = ufo_bullet;
+    isEnemy = true;
+    vel.setMag(1.5);
+    timer = 100;
+    d = 10;
   }
 
   void act() {
     loc.add(vel);
     wraparound();
     timer--;
-    if (timer <= 0) {
-      lives = 0;
+    if (timer <= 0) lives = 0;
+  }
+
+  void show() {
+    if (_type == cannon) {
+      fill(255); ellipse(loc.x, loc.y, d, d);
+    } else if (_type == laser) {
+      stroke(#8A00C4); strokeWeight(2);
+      line(loc.x, loc.y, loc.x - vel.x * 2, loc.y - vel.y * 2);
+    } else if (_type == rocket) {
+      pushMatrix();
+      translate(loc.x, loc.y);
+      rotate(vel.heading());
+      fill(255); rect(0, 0, 20, 10);
+      fill(255, 0, 0); triangle(-10, -5, -10, 5, -20, 0);
+      popMatrix();
+    } else if (_type == ufo_bullet) {
+      fill(0, 255, 255); ellipse(loc.x, loc.y, d, d);
     }
   }
 }
