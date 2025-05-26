@@ -148,7 +148,7 @@ class Spaceship extends GameObject {
             hitCooldown = 60;
             bullet.lives = 0;
 
-            println("Spaceship hit! Lives left: " + lives);
+            println("Spaceship" + lives);
             if (lives <= 0) {
               println("GAME OVER");
               mode = GAMEOVER;
@@ -165,6 +165,8 @@ class Spaceship extends GameObject {
 
       PVector safeloc = new PVector ();
       boolean safe = false;
+      int count= 0 ;
+
 
       while ( safe ==false ) {
 
@@ -176,19 +178,23 @@ class Spaceship extends GameObject {
 
 
 
+        if ( count < 500) {
 
-        int i = 0 ;
-        while ( i< objects.size()) {
+          int i = 0 ;
+          while ( i< objects.size()) {
 
-          GameObject obj = objects.get(i);
-          if ( obj instanceof Asteroid) {
-            float d = dist (safeloc.x, safeloc.y, obj.loc.x, obj.loc.y);
-            if ( d< 200) {
-              safe = false;
-              break;
+            GameObject obj = objects.get(i);
+            if ( obj instanceof Asteroid) {
+              float d = dist (safeloc.x, safeloc.y, obj.loc.x, obj.loc.y);
+              if ( d< 200) {
+                safe = false;
+                break;
+              }
             }
+            i++;
+            count ++;
+            println( count);
           }
-          i++;
         }
       }
       canTeleport = false;

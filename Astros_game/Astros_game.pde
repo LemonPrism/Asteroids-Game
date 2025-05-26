@@ -64,7 +64,7 @@ void setup() {
  
 
 
-  mode = GAMEOVER;
+  mode = MENU;
 
   objects = new ArrayList ();
 

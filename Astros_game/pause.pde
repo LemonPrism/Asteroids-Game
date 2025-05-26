@@ -5,6 +5,9 @@ void pause() {
   text ( "GAME PAUSED", 500, 200);
 
 
+  //textSize ( 20);
+  //text( "Click anywhere to return", width/2, height/2+50);
+
   if ( mouseX> 300 && mouseX < 400 && mouseY > 370 && mouseY < 420) {
     fill(yellow);
     stroke ( white);

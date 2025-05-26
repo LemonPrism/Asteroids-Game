@@ -15,7 +15,7 @@ class Bullet extends GameObject {
 
     vel.setMag(10);
     if (_type == cannon) {
-      timer = 30; d = 8;
+      timer = 30; d = 1;
     } else if (_type == laser) {
       timer = 20; d = 6;
     } else if (_type == rocket) {
@@ -41,19 +41,25 @@ class Bullet extends GameObject {
 
   void show() {
     if (_type == cannon) {
-      fill(255); ellipse(loc.x, loc.y, d, d);
+      fill(black); 
+      stroke ( random ( 255)); 
+      ellipse(loc.x, loc.y, d, d);
     } else if (_type == laser) {
-      stroke(#8A00C4); strokeWeight(2);
+      stroke(#8A00C4);
+      strokeWeight(2);
       line(loc.x, loc.y, loc.x - vel.x * 2, loc.y - vel.y * 2);
     } else if (_type == rocket) {
       pushMatrix();
       translate(loc.x, loc.y);
       rotate(vel.heading());
-      fill(255); rect(0, 0, 20, 10);
-      fill(255, 0, 0); triangle(-10, -5, -10, 5, -20, 0);
+      fill(255);
+      rect(0, 0, 20, 10);
+      fill(255, 0, 0);
+      triangle(-10, -5, -10, 5, -20, 0);
       popMatrix();
     } else if (_type == ufo_bullet) {
-      fill(0, 255, 255); ellipse(loc.x, loc.y, d, d);
+      fill(0, 255, 255);
+      ellipse(loc.x, loc.y, d, d);
     }
   }
 }
